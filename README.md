@@ -1,8 +1,11 @@
 angular-clockpicker
 ===================
 
+<<<<<<< HEAD
 ![Clockpicker](/clockpicker.png "")
 
+=======
+>>>>>>> Added bower, refactoring structure
 Clockpicker is an Angular directive that provides an intuitive way of selecting time.
 
 ###Usage###

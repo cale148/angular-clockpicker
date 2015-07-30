@@ -1,0 +1,31 @@
+{
+  "name": "angular-clock-picker",
+  "version": "0.0.1",
+  "authors": [
+    "cale148 <cale148@gmail.com>"
+  ],
+  "description": "Angular clock picker like Android",
+  "main": "angular-clockpicker.js",
+  "keywords": [
+    "angular",
+    "clockpicker",
+    "picker"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/cale148/angular-clockpicker",
+  "ignore": [
+    "**/.*",
+    "sample",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": ">=1.2.0 <1.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/urish/angular-clockpicker.git"
+  }
+}
