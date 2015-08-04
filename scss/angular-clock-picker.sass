@@ -1,0 +1,137 @@
+.ui-clockpicker
+  position: relative
+  padding: 50%
+  border: solid #aaa 2px
+  border-radius: 2px
+  font-family: Helvetica, sans-serif
+  .selected
+    color: #0088cc
+  a
+    cursor: pointer
+
+.ui-clockpicker-selection
+  display: block
+  padding: 10px 0 7px
+  font-size: xx-large
+  color: #666
+  text-align: center
+
+.ui-clockpicker-selector
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  display: block
+  padding: 5px
+  background: #eee
+  li
+    cursor: pointer
+    color: #555
+
+.ui-clockpicker-line
+  position: absolute
+  top: 95px
+  left: 95px
+  width: 2px
+  height: 60px
+  background: #0088cc
+  z-index: 1
+  transform-origin: 0 0
+  -webkit-transform-origin: 0 0
+
+.ui-clockpicker-time
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+  margin: 0
+  padding: 0
+  list-style: none
+  border: solid #000 1px
+  border-radius: 250px
+  background: #fff
+  li
+    position: absolute
+    font-size: x-large
+    &:nth-child(1)
+      top: 0
+      left: 75px
+    &:nth-child(2)
+      top: 16px
+      left: 118px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(2)
+  left: 113px
+
+.ui-clockpicker-time li:nth-child(3)
+  top: 40px
+  left: 149px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(3)
+  left: 137px
+
+.ui-clockpicker-time li:nth-child(4)
+  top: 76px
+  left: 160px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(4)
+  left: 145px
+
+.ui-clockpicker-time li:nth-child(5)
+  top: 112px
+  left: 144px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(5)
+  left: 137px
+
+.ui-clockpicker-time li:nth-child(6)
+  top: 138px
+  left: 118px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(6)
+  left: 109px
+
+.ui-clockpicker-time li:nth-child(7)
+  top: 150px
+  left: 82px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(7)
+  left: 75px
+
+.ui-clockpicker-time li:nth-child(8)
+  top: 138px
+  left: 45px
+
+.ui-clockpicker-selector.minute ol.ui-clockpicker-time li:nth-child(8)
+  left: 41px
+
+.ui-clockpicker-time li
+  &:nth-child(9)
+    top: 112px
+    left: 15px
+  &:nth-child(10)
+    top: 76px
+    left: 5px
+  &:nth-child(11)
+    top: 40px
+    left: 13px
+  &:nth-child(12)
+    top: 16px
+    left: 39px
+
+.ui-clockpicker-period
+  position: relative
+  top: -5px
+  height: 15px
+  margin: 0
+  padding: 0
+  list-style: none
+  li
+    position: absolute
+    font-weight: bold
+    &:nth-child(1)
+      left: 0
+    &:nth-child(2)
+      right: 0
