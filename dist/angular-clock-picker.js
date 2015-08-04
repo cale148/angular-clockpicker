@@ -3,7 +3,7 @@ angular.module('angular-clock-picker', [])
     return {
       restrict:    'EA',
       replace:     true,
-      templateUrl: 'template/clockpicker.html',
+      templateUrl: '/template/clockpicker.html',
       scope:       {
         datetime: '=ngModel'
       },
