@@ -5,7 +5,7 @@
     "cale148 <cale148@gmail.com>"
   ],
   "description": "Angular clock picker like Android",
-  "main": "angular-clockpicker.js",
+  "main": "dist/angular-clock-picker.js",
   "keywords": [
     "angular",
     "clockpicker",
