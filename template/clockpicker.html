@@ -1,22 +1,18 @@
-<div class='ui-clockpicker'>
-  <div class='ui-clockpicker-selection'>
-    <a ng-click='selectionMode = true' ng-class='{selected: selectionMode}'>{{hour}}</a>:
-    <a ng-click='selectionMode = false' ng-class='{selected: !selectionMode}'>{{minute}}</a>
-    <a ng-click='togglePeriod()'>{{period}}</a>
+<div class="analog-clock-circle-container">
+  <div class="analog-clock-circle-item" ng-repeat="(index, value) in clock.values[clock.arrow]">
+    <div class="analog-clock-circle-point" ng-click="clock[clock.arrow] = index; clock.arrow = 'min'" ng-class="{'analog-clock-circle-point_active': index === clock[clock.arrow]}">
+      {{value}}
+    </div>
   </div>
-  <div class='ui-clockpicker-selector' ng-class='{minute: !selectionMode}'>
-    <div class='ui-clockpicker-line' style='{{lineStyle()}}'></div>
-    <ol class='ui-clockpicker-time'>
-      <li ng-repeat='option in options'
-          ng-class='{selected: selectionMode ? hour == option : minute == option }'
-          ng-click='selectValue(option)'>{{option}}
-      </li>
-    </ol>
-    <ol class='ui-clockpicker-period'>
-      <li ng-repeat='periodOption in periodOptions'
-          ng-class='{selected: period == periodOption }'
-          ng-click='selectPeriod(periodOption)'>{{periodOption}}
-      </li>
-    </ol>
-  </div>
+
+  <div class="analog-clock-circle-center"></div>
+
+  <div class="analog-clock-arrow-hr" ng-style="{ transform: 'rotate(' + (clock.hr * 30) + 'deg)' }" ng-class="{'analog-clock-arrow-hr_active': 'hr' === clock.arrow}"></div>
+  <div class="analog-clock-arrow-min" ng-style="{ transform: 'rotate(' + (clock.min * 30) + 'deg)' }" ng-class="{'analog-clock-arrow-min_active': 'min' === clock.arrow}"></div>
+
+  <div class="analog-clock-am" ng-click="clock.meridiem = 'am'" ng-class="{'analog-clock-am_active': 'am' === clock.meridiem}">AM</div>
+  <div class="analog-clock-pm" ng-click="clock.meridiem = 'pm'" ng-class="{'analog-clock-pm_active': 'pm' === clock.meridiem}">PM</div>
+
+  <div class="analog-clock-hr" ng-click="clock.arrow = 'hr'" ng-class="{'analog-clock-hr_active': 'hr' === clock.arrow}">Hr</div>
+  <div class="analog-clock-min" ng-click="clock.arrow = 'min'" ng-class="{'analog-clock-min_active': 'min' === clock.arrow}">Min</div>
 </div>

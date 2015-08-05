@@ -1,15 +1,19 @@
 <!doctype html>
 <html ng-app="angular-clock-picker-example">
 <head>
-	<link rel="stylesheet" href="../dist/angular-clock-picker.css"/>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-	<script src="cntrl.js"></script>
-	<script src="../dist/angular-clock-picker.js"></script>
+  <link rel="stylesheet" href="../dist/angular-clock-picker.css"/>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  <script src="cntrl.js"></script>
+  <script src="../dist/angular-clock-picker.js"></script>
 </head>
 <body>
 
 <div ng-controller="ClockPickerTestController">
-	<clockpicker ng-model="time"></clockpicker>
+  <div>
+    {{ time.toString() }}
+  </div>
+  <button ng-click="time.setHours(5)">Change hours to 5</button>
+  <clockpicker ng-model="time"></clockpicker>
 </div>
 
 </body>

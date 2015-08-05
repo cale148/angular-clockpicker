@@ -1,67 +1,53 @@
+'use strict';
 angular.module('angular-clock-picker', [])
   .directive('clockpicker', function () {
     return {
-      restrict:    'EA',
-      replace:     true,
       templateUrl: '/template/clockpicker.html',
-      scope:       {
-        datetime: '=ngModel'
+      restrict: 'E',
+      scope: {
+        ngModel: '='
       },
-      controller:  function ($scope) {
-        $scope.hourOptions = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-        $scope.minuteOptions = ['00', '05', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55'];
-        $scope.periodOptions = ['am', 'pm'];
-        $scope.selectionMode = true;
-
-        var timeMatches = /(\d{2}):(\d{2}):(\d{2})/.exec($scope.datetime.toString());
-
-        $scope.hour = timeMatches[1];
-        $scope.minute = timeMatches[2];
-        $scope.period = 'am';
-
-        if ($scope.hour > 12) {
-          $scope.hour = parseInt($scope.hour - 12);
-          $scope.period = 'pm';
+      link: function postLink (scope) {
+        if (!scope.ngModel) {
+          scope.ngModel = new Date();
+        }
+        scope.clock = {
+          arrow: 'hr',
+          values: {
+            hr: [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2],
+            min: [15, 20, 25, 30, 35, 40, 45, 50, 55, '00', '05', 10]
+          }
         }
 
-        var toggleOnSelection = false;
-        var currentIndex = function () {
-          if ($scope.selectionMode) {
-            for (var i = 0; i < $scope.hourOptions.length; i++) {
-              if ($scope.hourOptions[i] == $scope.hour) return i;
+        scope.$watch('ngModel.getTime()', function () {
+          var hr = scope.ngModel.getHours() % 12 || 12
+          var min = Math.round(scope.ngModel.getMinutes() / 5) * 5
+
+          scope.clock.meridiem = scope.ngModel.getHours() < 12 ? 'am' : 'pm'
+
+          scope.clock.hr = scope.clock.values.hr.indexOf(hr)
+          if (min < 10) {
+            min = '0' + min
+          }
+          scope.clock.min = scope.clock.values.min.indexOf(min)
+        })
+
+        scope.$watch('clock.min', function (val) {
+          scope.ngModel.setMinutes(parseInt(scope.clock.values.min[val]))
+        })
+        scope.$watch('clock.hr + clock.meridiem', function () {
+          var hr = parseInt(scope.clock.values.hr[scope.clock.hr])
+          if ('pm' === scope.clock.meridiem) {
+            hr += 12
+            if (24 === hr) {
+              hr = 12
             }
+          } else if (12 === hr) {
+            hr = 0
           }
-          else {
-            for (var j = 0; j < $scope.hourOptions.length; j++) {
-              if ($scope.minuteOptions[j] == $scope.minute) return j;
-            }
-          }
-        };
-        $scope.selectValue = function (value) {
-          $scope.selectionMode ? $scope.hour = value : $scope.minute = value;
-          if (toggleOnSelection) {
-            $scope.selectionMode = !$scope.selectionMode;
-          }
-        };
-        $scope.selectPeriod = function (value) {
-          $scope.period = value;
-        };
-        $scope.togglePeriod = function () {
-          $scope.selectPeriod($scope.period == 'am' ? 'pm' : 'am');
-        };
-        $scope.lineStyle = function () {
-          var angle = 'rotate(' + (currentIndex() * 30 - 180) + 'deg)';
-          return 'transform: ' + angle + '; -webkit-transform: ' + angle;
-        };
-        $scope.$watch('selectionMode', function (value) {
-          $scope.options = value ? $scope.hourOptions : $scope.minuteOptions;
-        });
-        $scope.$watch('hour + period', function () {
-          $scope.datetime.setHours($scope.period == 'pm' ? $scope.hour + 12 : $scope.hour);
-        });
-        $scope.$watch('minute', function (value) {
-          $scope.datetime.setMinutes(value);
-        });
+          scope.ngModel.setHours(hr)
+        })
       }
-    };
+    }
   });
+
