@@ -1,6 +1,6 @@
 'use strict';
 angular.module('angular-clock-picker', [])
-  .directive('clockpicker', function () {
+  .directive('analogClock', function () {
     return {
       templateUrl: '/template/clockpicker.html',
       restrict: 'E',

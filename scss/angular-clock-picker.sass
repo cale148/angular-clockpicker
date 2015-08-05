@@ -38,6 +38,7 @@ $offset: 80%
   @for $i from 1 to $nb-items+1
     &:nth-of-type(#{$i})
       transform: rotate(#{$rot}deg) translate(50%*10) rotate(-#{$rot}deg)
+      -webkit-transform: rotate(#{$rot}deg) translate(50%*10) rotate(-#{$rot}deg)
 
     $rot: $rot + $angle
 
@@ -45,13 +46,17 @@ $offset: 80%
 
 .analog-clock-circle-point
   display: flex
+  display: -webkit-flex
   align-items: center
+  -webkit-align-items: center
   justify-content: center
+  -webkit-justify-content: center
   border-radius: 50%
   width:  $item-size
   height: $item-size
   margin: $item-size/-2
   transition: all .3s ease
+  -webkit-transition: all .3s ease
   color: $point-color
   background: $point-bg-color
 
@@ -82,7 +87,9 @@ $offset: 80%
   border-radius: $size 0 0 $size
   background: $arrow-color
   transform-origin: $size/2 $size/2
+  -webkit-transform-origin: $size/2 $size/2
   transition: all .15s ease
+  -webkit-transition: all .15s ease
 
 
 .analog-clock-arrow_active
