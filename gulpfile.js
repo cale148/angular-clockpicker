@@ -16,8 +16,8 @@ gulp.task('templates', function () {
       root: '/template/',
       module: pkg.name
     }))
-    .pipe(gulp.dest('.'));
-});
+    .pipe(gulp.dest('.'))
+})
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/angular-clock-picker.sass')
@@ -25,23 +25,29 @@ gulp.task('sass', function(done) {
       errLogToConsole: true
     }))
     .pipe(gulp.dest('./dist/'))
-    .on('end', done);
+    .on('end', done)
+});
+
+gulp.task('copy-sass', function(done) {
+  gulp.src('./scss/angular-clock-picker.sass')
+    .pipe(gulp.dest('./dist/'))
 });
 
 gulp.task('concat', ['templates'], function () {
   return gulp.src([main, 'templates.tmp'])
     .pipe(concat(pkg.name + '.js'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./dist/'))
 });
 
 gulp.task('clean', ['concat'], function () {
   gulp.src('./*.tmp', {read: false})
-    .pipe(clean());
+    .pipe(clean())
 });
 
 gulp.task('watch', function () {
-  gulp.watch(['*.js', '*.html'], ['build']);
-});
+  gulp.watch(['*.js', '*.html'], ['build'])
+})
 
-gulp.task('build', ['templates', 'concat', 'clean']);
-gulp.task('default', ['build', 'sass', 'watch']);
+gulp.task('build', ['templates', 'concat', 'clean'])
+gulp.task('default', ['build', 'sass', 'copy-sass', 'watch'])
+;
