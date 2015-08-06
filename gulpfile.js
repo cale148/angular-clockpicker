@@ -26,28 +26,23 @@ gulp.task('sass', function(done) {
     }))
     .pipe(gulp.dest('./dist/'))
     .on('end', done)
-});
-
-gulp.task('copy-sass', function(done) {
-  gulp.src('./scss/angular-clock-picker.sass')
-    .pipe(gulp.dest('./dist/'))
-});
+})
 
 gulp.task('concat', ['templates'], function () {
   return gulp.src([main, 'templates.tmp'])
     .pipe(concat(pkg.name + '.js'))
     .pipe(gulp.dest('./dist/'))
-});
+})
 
 gulp.task('clean', ['concat'], function () {
   gulp.src('./*.tmp', {read: false})
     .pipe(clean())
-});
+})
 
 gulp.task('watch', function () {
   gulp.watch(['*.js', '*.html'], ['build'])
 })
 
 gulp.task('build', ['templates', 'concat', 'clean'])
-gulp.task('default', ['build', 'sass', 'copy-sass', 'watch'])
+gulp.task('default', ['build', 'sass', 'watch'])
 ;

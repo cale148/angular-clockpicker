@@ -6,6 +6,10 @@
   ],
   "description": "Angular clock picker like Android",
   "main": "dist/angular-clock-picker.js",
+  "main": [
+    "dist/angular-clock-picker.js",
+    "dist/angular-clock-picker.css"
+  ],
   "keywords": [
     "angular",
     "clockpicker",
