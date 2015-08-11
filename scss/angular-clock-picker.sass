@@ -77,34 +77,42 @@ $offset: 80%
   z-index: 2
 
 
-@mixin arrow($size, $length)
+@mixin arrow
+  position: absolute
+  transform-origin: 0 0
+  -webkit-transform-origin: 0 0
+  transition: all .15s ease
+  -webkit-transition: all .15s ease
+
+@mixin arrow__face($size, $length)
   position: absolute
   width: $length
   overflow: hidden
   height: $size
   margin-left: $size/-2
   margin-top: $size/-2
-  border-radius: $size 0 0 $size
+  border-radius: $size/-2 0 0 $size/-2
   background: $arrow-color
-  transform-origin: $size/2 $size/2
-  -webkit-transform-origin: $size/2 $size/2
-  transition: all .15s ease
-  -webkit-transition: all .15s ease
-
 
 .analog-clock-arrow_active
   background: $arrow-color-active
 
 
 .analog-clock-arrow-hr
-  @include arrow(2.5vmin, 29%)
+  @include arrow
+
+.analog-clock-arrow-hr__face
+  @include arrow__face(2.5vmin, 20vmin)
 
 .analog-clock-arrow-hr_active
   background: $arrow-color-active
   z-index: 2
 
 .analog-clock-arrow-min
-  @include arrow(1vmin, 37%)
+  @include arrow
+
+.analog-clock-arrow-min__face
+  @include arrow__face(1vmin, 25vmin)
 
 .analog-clock-arrow-min_active
   background: $arrow-color-active

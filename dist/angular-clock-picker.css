@@ -88,17 +88,20 @@
 
 .analog-clock-arrow-hr {
   position: absolute;
-  width: 29%;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease; }
+
+.analog-clock-arrow-hr__face {
+  position: absolute;
+  width: 20vmin;
   overflow: hidden;
   height: 2.5vmin;
   margin-left: -1.25vmin;
   margin-top: -1.25vmin;
-  border-radius: 2.5vmin 0 0 2.5vmin;
-  background: #5e5e5e;
-  transform-origin: 1.25vmin 1.25vmin;
-  -webkit-transform-origin: 1.25vmin 1.25vmin;
-  transition: all 0.15s ease;
-  -webkit-transition: all 0.15s ease; }
+  border-radius: -1.25vmin 0 0 -1.25vmin;
+  background: #5e5e5e; }
 
 .analog-clock-arrow-hr_active {
   background: #4a87ee;
@@ -106,17 +109,20 @@
 
 .analog-clock-arrow-min {
   position: absolute;
-  width: 37%;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transition: all 0.15s ease;
+  -webkit-transition: all 0.15s ease; }
+
+.analog-clock-arrow-min__face {
+  position: absolute;
+  width: 25vmin;
   overflow: hidden;
   height: 1vmin;
   margin-left: -0.5vmin;
   margin-top: -0.5vmin;
-  border-radius: 1vmin 0 0 1vmin;
-  background: #5e5e5e;
-  transform-origin: 0.5vmin 0.5vmin;
-  -webkit-transform-origin: 0.5vmin 0.5vmin;
-  transition: all 0.15s ease;
-  -webkit-transition: all 0.15s ease; }
+  border-radius: -0.5vmin 0 0 -0.5vmin;
+  background: #5e5e5e; }
 
 .analog-clock-arrow-min_active {
   background: #4a87ee;
