@@ -1,6 +1,9 @@
+![Clockpicker](/clockpicker.png "")
+
 ## Descriptoin
 
 It is `ionic-clock-face-time-picker` the great fully responsive circle clock face time chooser. Easy and fast set date. You need not use any more!
+
 
 
 ## How to use:
@@ -8,10 +11,8 @@ It is `ionic-clock-face-time-picker` the great fully responsive circle clock fac
 1. Add from dist folder link on `angular-clock-picker.js`
 
 ```html
-
     <!-- path to ionic/angularjs -->
     <script src="../dist/angular-clock-picker.js"></script>
-    
 ```
 
 2. Add from dist folder link on `angular-clock-picker.css`
